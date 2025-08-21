@@ -1,0 +1,60 @@
+{
+  "data": [
+    {
+      "report_header": {
+        "c3": {
+          "name": "LI_AUTOSEQ_AUTO",
+          "type": "java.lang.String"
+        },
+        "c4": {
+          "name": "PROJECTNUMBER",
+          "type": "java.lang.String"
+        },
+        "c5": {
+          "name": "RECORD_NO",
+          "type": "java.lang.String"
+        },
+        "c6": {
+          "name": "SHELL_NUMBER",
+          "type": "java.lang.String"
+        },
+        "c7": {
+          "name": "STATUS",
+          "type": "java.lang.String"
+        },
+        "c1": {
+          "name": "ID_EDIFICIO",
+          "type": "java.lang.String"
+        },
+        "c2": {
+          "name": "ID_MODULO",
+          "type": "java.lang.String"
+        }
+      },
+      "report_row": [
+        {
+          "c1": "2012AM15",
+          "c2": "2012AM1530",
+          "c3": "0003",
+          "c4": "ADM-0095",
+          "c5": "CAR-000006",
+          "c6": "",
+          "c7": "Activo"
+        },
+        {
+          "c1": "1031AO01",
+          "c2": "1031AO0101",
+          "c3": "0003",
+          "c4": "ADM-0096",
+          "c5": "CAR-000002",
+          "c6": "",
+          "c7": "Activo"
+        }
+      ]
+    }
+  ],
+  "message": [
+    "OK"
+  ],
+  "status": 200
+}
