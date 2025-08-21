@@ -93,7 +93,15 @@ def loadFileAndSaveToVectorDB():
     return vectordb
 
 def loadJsonandSaveToVectorDB(json):
-    print(json)
+
+    embeddings = OpenAIEmbeddings()
+
+    vectordb = Chroma.from_documents
+
+    # Se crea una base de datos Chroma con todos los datos del PDF
+    vectordb = Chroma.from_documents(json,embedding=embeddings)
+    vectordb.persist() # Se guarda la BDD
+    return vectordb
 
 #                    #
 # Ejecucion programa #
@@ -132,6 +140,23 @@ def main():
         print("Se cargara reporte de Unifier.")
         token = getTokenUnifier()
         jsonUnifier = loadJsonandSaveToVectorDB(loadReportUnifier(token))
+
+        # Carga JSON y crea BDD vectorial
+        vector_db = loadFileAndSaveToVectorDB()
+        # cadena de conversacion
+        qa = ConversationalRetrievalChain.from_llm(
+            llm=model,
+            retriever=vector_db.as_retriever(),
+            return_source_documents=True)
+
+        pregunta = input("Ingresa pregunta del archivo:")
+        chat_history = []
+
+        result = qa({"question": pregunta, "chat_history": chat_history})
+
+        print("\nRespuesta:")
+        print(result['answer'])
+
 
 
 if __name__ == "__main__":
