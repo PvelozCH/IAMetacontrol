@@ -74,9 +74,9 @@ async def button_handler(update: Update, context: ContextTypes.DEFAULT_TYPE):
     elif query.data == "unifier":
         user_sessions[user_id] = {"mode": "processing_unifier"}
         keyboard = [
-            [InlineKeyboardButton("📄 Contratos a Vencer", callback_data=lista_reportes[0])],
-            [InlineKeyboardButton("📄 Contratos a Incrementar Portafolios Externos", callback_data=lista_reportes[1])],
-            [InlineKeyboardButton("📄 Contratos a Incrementar ", callback_data=lista_reportes[2])]
+            [InlineKeyboardButton("Contratos a Vencer", callback_data=lista_reportes[0])],
+            [InlineKeyboardButton("Contratos a Incrementar Portafolios Externos", callback_data=lista_reportes[1])],
+            [InlineKeyboardButton("Contratos a Incrementar ", callback_data=lista_reportes[2])]
         ]
         reply_markup = InlineKeyboardMarkup(keyboard)
         # Editamos el mensaje original para mostrar los nuevos botones

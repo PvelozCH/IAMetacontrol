@@ -14,7 +14,7 @@ from langchain_core.messages import HumanMessage
 from langchain.schema.document import Document
 
 from unifierController import uniController
-
+import shutil
 import base64
 import tempfile
 import pycurl
@@ -42,7 +42,11 @@ class reporteLoader:
 
     # Cargar PDF y guarda la data en una BDD vectorial
     def loadPDFAndSaveToVectorDB(pdf_path):
-        
+        directorioCache = "./MEDIAStrial"
+        #Si ya viene el directorio, borrarlo
+        if os.path.exists(directorioCache):
+            shutil.rmtree(directorioCache, ignore_errors=True)
+
         # Carga PDF directamente desde un directorio
         loader = PyPDFLoader(pdf_path)
 
@@ -58,7 +62,11 @@ class reporteLoader:
     
     # Cargar PDF y guarda la data en una BDD vectorial
     def loadImageAndSaveToVectorDB(img_path):
-        
+        directorioCache = "./ImagenDescripcion_db"
+        #Si ya viene el directorio, borrarlo
+        if os.path.exists(directorioCache):
+            shutil.rmtree(directorioCache, ignore_errors=True)
+
         # Codificar la imagen a Base64 
         try:
             with open(img_path, "rb") as image_file:
@@ -106,6 +114,11 @@ class reporteLoader:
 
     #  Carga directamente json y lo convierte en un vector
     def loadJsonandSaveToVectorDB(json_dict):
+        directorioCache = "./json_vectordb"
+        #Si ya viene el directorio, borrarlo
+        if os.path.exists(directorioCache):
+            shutil.rmtree(directorioCache, ignore_errors=True)
+
         # Convierte el diccionario de JSON a un string formateado
         json_content = json.dumps(json_dict, indent=2, ensure_ascii=False)
         
