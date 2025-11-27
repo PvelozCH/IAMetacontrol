@@ -1,3 +1,5 @@
+# La aplicación puede funcionar sin telegram iniciando 'reporteLoader.py' por si solo
+
 # Flujo de funcionamiento del Bot de Telegram
 ## Paso a Paso
 
